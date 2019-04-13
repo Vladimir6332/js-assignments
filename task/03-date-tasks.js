@@ -22,7 +22,7 @@
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
 function parseDataFromRfc2822(value) {
-   throw new Error('Not implemented');
+    return new Date(value);
 }
 
 /**
@@ -37,7 +37,7 @@ function parseDataFromRfc2822(value) {
  *    '2016-01-19T08:07:37Z' => Date()
  */
 function parseDataFromIso8601(value) {
-   throw new Error('Not implemented');
+    return new Date(value);
 }
 
 
@@ -56,7 +56,13 @@ function parseDataFromIso8601(value) {
  *    Date(2015,1,1)    => false
  */
 function isLeapYear(date) {
-   throw new Error('Not implemented');
+    //if (date.setDate(29).getDate() == 29) return true;
+    //return false;
+    let year = date.getFullYear();
+    if (year % 4 != 0) return false
+    else if (year % 100 != 0) return true
+    else if (year % 400 != 0) return false
+    else return true;
 }
 
 
@@ -76,7 +82,12 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 function timeSpanToString(startDate, endDate) {
-   throw new Error('Not implemented');
+    let timeSpan = new Date(endDate - startDate);
+    let strTimeSpan = timeSpan.toISOString();
+    let indexStart = strTimeSpan.indexOf('T');
+    let indexEnd = strTimeSpan.indexOf('Z');
+    return strTimeSpan.slice(indexStart + 1, indexEnd);
+    //return timeSpan.getHours() + ":" + timeSpan.getMinutes() + ":" + timeSpan.getSeconds() + "." + timeSpan.getMilliseconds();
 }
 
 
@@ -94,7 +105,20 @@ function timeSpanToString(startDate, endDate) {
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
 function angleBetweenClockHands(date) {
-    throw new Error('Not implemented');
+    let hh = date.getUTCHours();
+    let mm = date.getUTCMinutes();
+    hh = hh % 12;
+    //let angleH = (Math.PI / 360) * (60 * hh + mm);
+    //let angleM = (Math.PI / 30) * mm;
+
+    let angleH = 0.5 * (60 * hh + mm);
+    let angleM = 6 * mm;
+    let angle;
+    angle = Math.abs(angleH - angleM) * (Math.PI / 180);
+    if (angle > Math.PI) return Math.PI * 2 - angle
+    else return angle;
+
+
 }
 
 
