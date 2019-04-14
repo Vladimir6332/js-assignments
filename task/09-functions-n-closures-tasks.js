@@ -203,8 +203,10 @@ function logger(func, logFunc) {
  *   partialUsingArguments(fn, 'a','b','c')('d') => 'abcd'
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
-function partialUsingArguments(fn) {
-    throw new Error('Not implemented');
+function partialUsingArguments(fn, ...args) {
+    return function(...a) {
+        return fn(...args, ...a);
+    };
 }
 
 
@@ -225,7 +227,14 @@ function partialUsingArguments(fn) {
  *   getId10() => 11
  */
 function getIdGeneratorFunction(startFrom) {
-    throw new Error('Not implemented');
+
+    return function() {
+        let cur = startFrom;
+        return function() {
+            return cur++;
+        }
+
+    }();
 }
 
 
