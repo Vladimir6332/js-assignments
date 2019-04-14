@@ -590,7 +590,32 @@ function getCommonDirectoryPath(pathes) {
  *
  */
 function getMatrixProduct(m1, m2) {
-    throw new Error('Not implemented');
+    let res = new Array(m1.length);
+    for (let i = 0; i < res.length; i++) {
+        res[i] = new Array(m2[0].length)
+    }
+    let sum;
+    let line;
+    for (let i = 0; i < m1.length; i++) {
+        for (let j = 0; j < m2[0].length; j++) {
+            line = m2.reduce((acc, val) => {
+                acc.push(val[j]);
+                return acc;
+            }, []);
+            res[i][j] = add(m1[i], line);
+
+        }
+
+    };
+
+    function add(linem1, linem2) {
+        sum = 0;
+        for (let i = 0; i < linem1.length; i++) {
+            sum += linem1[i] * linem2[i]
+        }
+        return sum
+    }
+    return res;
 }
 
 
@@ -625,7 +650,41 @@ function getMatrixProduct(m1, m2) {
  *
  */
 function evaluateTicTacToePosition(position) {
-    throw new Error('Not implemented');
+    let res = undefined;
+    let line;
+    for (let i = 0; i < position.length; i++) {
+        if (check(position[i]) === 'X' || check(position[i]) === '0') return check(position[i]);
+
+    };
+
+    for (let j = 0; j < position.length; j++) {
+        line = [];
+        for (let i = 0; i < position.length; i++) {
+            line.push(position[i][j]);
+        }
+        if (line.every((val) => val === '0')) res = '0';
+        if (line.every((val) => val === 'X')) res = 'X';
+
+    };
+    line = [];
+    for (let i = 0; i < position.length; i++) {
+        line.push(position[i][i]);
+    };
+    if (line.every((val) => val === '0')) res = '0';
+    if (line.every((val) => val === 'X')) res = 'X';
+    line = [];
+    for (let i = 0; i < position.length; i++) {
+        line.push(position[position.length - 1 - i][i])
+
+    };
+    if (line.every((val) => val === '0')) res = '0';
+    if (line.every((val) => val === 'X')) res = 'X';
+    return res
+
+    function check(line) {
+        if (line[0] === line[1] && line[1] === line[2]) return line[0]
+        return false
+    }
 }
 
 
