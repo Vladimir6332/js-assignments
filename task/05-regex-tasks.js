@@ -31,9 +31,10 @@
  * @return {RegExp}
  */
 function getRegexForGuid() {
-    let regexp = new RegExp('/[0-9a-fA-F-]{8}[0-9a-fA-F-]{4}[0-9a-fA-F-]{4}[0-9a-fA-F-]{4}[0-9a-fA-F]{12}');
-    //return /[0-9a-fA-F-]{8}[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
-    return regexp;
+    // let regexp = new RegExp('/[0-9a-fA-F-]{8}[0-9a-fA-F-]{4}[0-9a-fA-F-]{4}[0-9a-fA-F-]{4}[0-9a-fA-F]{12}');
+    // //return /[0-9a-fA-F-]{8}[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
+    // return regexp;
+    throw new Error('Not implemented');
 }
 
 

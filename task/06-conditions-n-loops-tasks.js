@@ -466,27 +466,28 @@ function isBracketsBalanced(str) {
  *
  */
 function timespanToHumanString(startDate, endDate) {
-    let time = (endDate - startDate) / 1000;
+    // let time = (endDate - startDate) / 1000;
 
-    if (time <= 45) return 'a few seconds ago'
-    else if (time <= 90) return 'a minute ago'
-    else if (time <= 2700) {
-        if (time < 120) return '2 minutes ago'
-        time = Math.floor(time / 60);
-        return `${time} minutes ago`
-    } else if (time <= 5400) { return `an hour ago` } else {
-        time = time / 60;
-        if (time <= 1320) {
-            if (time < 120) return '2 hours ago';
+    // if (time <= 45) return 'a few seconds ago'
+    // else if (time <= 90) return 'a minute ago'
+    // else if (time <= 2700) {
+    //     if (time < 120) return '2 minutes ago'
+    //     time = Math.floor(time / 60);
+    //     return `${time} minutes ago`
+    // } else if (time <= 5400) { return `an hour ago` } else {
+    //     time = time / 60;
+    //     if (time <= 1320) {
+    //         if (time < 120) return '2 hours ago';
 
-            time = Math.round(time / 60);
-            return `${time} hours ago`
-        }
-    }
-    if (time < 2160) { return `a day ago` } else { time = Math.floor(time / 60); if (time < 600) { time = Math.floor(time / 24); return `${time} days ago` } }
-    if (time < 1080) { return `a month ago` } else if (time < 8280) { time = Math.ceil(time / (24 * 30)); return `${time} months ago` } else if (time < 13080) { return `a year ago` };
-    time = Math.ceil(time / 365);
-    return `${time} years ago`
+    //         time = Math.round(time / 60);
+    //         return `${time} hours ago`
+    //     }
+    // }
+    // if (time < 2160) { return `a day ago` } else { time = Math.floor(time / 60); if (time < 600) { time = Math.floor(time / 24); return `${time} days ago` } }
+    // if (time < 1080) { return `a month ago` } else if (time < 8280) { time = Math.ceil(time / (24 * 30)); return `${time} months ago` } else if (time < 13080) { return `a year ago` };
+    // time = Math.ceil(time / 365);
+    // return `${time} years ago`
+    throw new Error('Not implemented');
 
 }
 

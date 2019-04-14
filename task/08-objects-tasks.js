@@ -115,35 +115,40 @@ function fromJSON(proto, json) {
  */
 
 const cssSelectorBuilder = {
-    Selector: function {
-        this.sel = '';
-        selector.prototype.stringify = function() {
-            return sel;
-        }
-    }
+    // Selector: function {
+    //     this.sel = '';
+    //     selector.prototype.stringify = function() {
+    //         return sel;
+    //     }
+    // }
 
-        element: function(value) {
-        return
-    },
+    //     element: function(value) {
+    //     return
+    // },
 
     id: function(value) {
-        this.selector += '#' + value;
+        //this.selector += '#' + value;
+        throw new Error('Not implemented');
     },
 
     class: function(value) {
-        this.selector += '.' + value;
+        //this.selector += '.' + value;
+        throw new Error('Not implemented');
     },
 
     attr: function(value) {
-        this.selector += '[' + value + ']';
+        //this.selector += '[' + value + ']';
+        throw new Error('Not implemented');
     },
 
     pseudoClass: function(value) {
-        this.selector += ':' + value;
+        //this.selector += ':' + value;
+        throw new Error('Not implemented');
     },
 
     pseudoElement: function(value) {
-        this.selector += '::' + value;
+        // this.selector += '::' + value;
+        throw new Error('Not implemented');
     },
 
     combine: function(selector1, combinator, selector2) {
